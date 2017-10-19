@@ -1,13 +1,24 @@
-package com.zm.pojo;
+package com.zm.model;
 
-/**
- * Created by Administrator on 2017/9/17.
- */
-public class User {
+public class Exam {
     private Integer id;
+
     private String name;
+
     private String keceng;
-    private String fensu;
+
+    private Integer fensu;
+
+    public Exam(Integer id, String name, String keceng, Integer fensu) {
+        this.id = id;
+        this.name = name;
+        this.keceng = keceng;
+        this.fensu = fensu;
+    }
+
+    public Exam() {
+        super();
+    }
 
     public Integer getId() {
         return id;
@@ -22,7 +33,7 @@ public class User {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
     public String getKeceng() {
@@ -30,24 +41,24 @@ public class User {
     }
 
     public void setKeceng(String keceng) {
-        this.keceng = keceng;
+        this.keceng = keceng == null ? null : keceng.trim();
     }
 
-    public String getFensu() {
+    public Integer getFensu() {
         return fensu;
     }
 
-    public void setFensu(String fensu) {
+    public void setFensu(Integer fensu) {
         this.fensu = fensu;
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Exam{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", keceng='" + keceng + '\'' +
-                ", fensu='" + fensu + '\'' +
+                ", fensu=" + fensu +
                 '}';
     }
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <properties resource="db.properties">
+
+    </properties>
+
+
+    <!-- 对事务的管理和连接池的配置 -->
+    <environments default="development">
+        <environment id="development">  
+            <transactionManager type="JDBC" />  
+            <dataSource type="POOLED">  
+                <!--<property name="driver" value="com.mysql.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/zhangmin" />
+                <property name="username" value="root" />
+                <property name="password" value="root" />-->
+
+                <!--使用外部的文件配置-->
+                <property name="driver" value="${jdbc.driver}" />
+                <property name="url" value="${jdbc.url}" />
+                <property name="username" value="${jdbc.username}" />
+                <property name="password" value="${jdbc.password}" />
+            </dataSource>  
+        </environment>  
+    </environments>
+
+    <!-- mapping 文件路径配置 -->
+    <mappers>
+        <mapper resource="mapper/UserMapper.xml" />
+        <mapper resource="mapper/ExamMapper.xml"/>
+
+        <!--包扫描方式动态mapper-->
+        <package name="com.zm.scan.mapper"/>
+    </mappers>
+</configuration>
